@@ -1,0 +1,83 @@
+html,
+body {
+    height: 100%;
+}
+/* Navigation*/
+
+.navbar {
+    background-color: #2e9cea;
+}
+
+.top-nav-collapse {
+    background-color: #2e9cea;
+}
+
+footer.page-footer {
+    background-color: #2e9cea;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+}
+
+.scrolling-navbar {
+    -webkit-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    -moz-transition: background .5s ease-in-out, padding .5s ease-in-out;
+    transition: background .5s ease-in-out, padding .5s ease-in-out;
+}
+/* Carousel*/
+
+.carousel {
+    height: 50%;
+}
+
+@media (max-width: 776px) {
+    .carousel {
+        height: 100%;
+    }
+}
+
+.carousel-item,
+.active {
+    height: 100%;
+}
+
+.carousel-inner {
+    height: 100%;
+}
+/*Caption*/
+
+.flex-center {
+    color: #fff;
+}
+.navbar .btn-group .dropdown-menu a:hover {
+    color: #000 !important;
+}
+.navbar .btn-group .dropdown-menu a:active {
+    color: #fff !important;
+}/* YOUR CUSTOM STYLES */
+.container-fluid{
+    height:84%;
+    display:table;
+    width: 100%;
+    padding: 0;
+  }
+   
+  .row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
+   
+   
+  
+  .centering {
+    float:none;
+    margin:0 auto;
+  }
+  #caja_logout {
+    right: 1%;
+    top: 10%;
+    text-align: right;
+    position: relative;
+    float: right;
+
+  }
