@@ -34,7 +34,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
     <div class="container">
-        <a class="navbar-brand" href="">TAREAS!</a>
+        <a class="navbar-brand" href="home">TAREAS!</a>
     </div>
 </nav>
 <div id="caja_logout">
