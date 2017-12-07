@@ -26,7 +26,7 @@ public class Tarea {
     @JoinColumn(name="id_usuario")
     private Usuario usuarioPropietario;
 
-    public Tarea(){
+    public Tarea( ){
         super();
         this.realizada=false;
     }
@@ -35,6 +35,23 @@ public class Tarea {
         this.titulo = titulo;
         this.fecha_vencimiento = fecha_vencimiento;
         this.descripcion = descripcion;
+        this.usuarioPropietario = usuarioPropietario;
+    }
+
+    public Tarea(Long id_tarea,String titulo, Date fecha_vencimiento,String descripcion, Boolean realizada, Usuario usuarioPropietario) {
+        this.id_tarea=id_tarea;
+        this.titulo = titulo;
+        this.usuarioPropietario = usuarioPropietario;
+        this.realizada = realizada;
+        this.descripcion = descripcion;
+        this.fecha_vencimiento = fecha_vencimiento;
+    }
+
+    public Usuario getUsuarioPropietario() {
+        return usuarioPropietario;
+    }
+
+    public void setUsuarioPropietario(Usuario usuarioPropietario) {
         this.usuarioPropietario = usuarioPropietario;
     }
 

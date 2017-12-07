@@ -1,5 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -33,7 +35,10 @@
     <a class="navbar-brand" href="">TAREAS!</a>
   </div>
 </nav>
-
+<div id="caja_logout">
+  <% String Email = (String) session.getAttribute("Email"); %>
+  <span > usuario: <%=Email%> <a href="logout" class="">Salir</a> </span>
+</div>
 <div class="container-fluid">
   <div class="row-fluid ">
     <div class="col" style="padding-top:10%; padding-bottom:5%;">
@@ -44,7 +49,7 @@
         <div class="header pt-3 grey lighten-2">
 
           <div class="row d-flex justify-content-start">
-            <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5" style=" width:32rem;">Crear tarea</h3>
+            <h3 class="deep-grey-text mt-3 mb-4 pb-1 mx-5" style=" width:32rem;" >Editar tarea</h3>
           </div>
 
         </div>
@@ -53,7 +58,8 @@
         <div class="card-body mx-4 mt-4" style="text-align: left;">
 
           <!--Body-->
-          <form:form id="taskForm" modelAttribute="tareaBean" action="create_task" method="post">
+          <form:form id="taskForm" modelAttribute="tareaBean" action="${pageContext.request.contextPath}/list_tasks/edit/${tareaBean.id_tarea}" method="post">
+            <form:hidden path="id_tarea"/>
             <div class="md-form">
               Titulo
               <form:input path="titulo" name="titulo" id="Form-email4" />
@@ -61,19 +67,25 @@
             </div>
             <div class="md-form">
               Fecha de vencimiento
-              <input type="date" name="fecha_vencimiento" />
-
+              <fmt:formatDate value="${tareaBean.fecha_vencimiento}" var="dateString" pattern="yyyy-MM-dd" />
+              <input type="date" value="${dateString}" name="fecha_vencimiento" />
+                <form:errors path="fecha_vencimiento" cssClass="error"/></td>
             </div>
             <div class="md-form">
               Descripcion
               <form:textarea path="descripcion" name="descripcion" id="Form-email4" />
                 <form:errors path="descripcion" cssClass="error"/></td>
             </div>
+            <div class="md-form">
+              Realizada
+              <input type="checkbox" name="realizada" id="realizada" <c:if test="${tareaBean.realizada}">checked="checked"</c:if> />
+              <form:errors path="realizada" cssClass="error"/></td>
+            </div>
 
 
 
             <div class="text-center mb-4">
-              <form:button id="tareaBean" name="tareaForm" class="btn btn-primary btn-block z-depth-2 waves-effect waves-light">Crear tarea</form:button>
+              <form:button id="taskaForm" name="taskForm" class="btn btn-primary btn-block z-depth-2 waves-effect waves-light">Editar tarea</form:button>
             </div>
           </form:form>
         </div>

@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -65,8 +66,44 @@ public class HomeController {
     @RequestMapping(value = "/list_tasks", method = RequestMethod.GET)
     public ModelAndView list_tasks() {
         ModelAndView mav=new ModelAndView("list_tasks");
-        List<Tarea> tareas=tareaBO.list();
-        mav.addObject("tareas", tareas);
+        Long id= (Long) httpSession.getAttribute("Id");
+        Usuario usuario=usuarioBO.get(id);
+        mav.addObject("tareas", usuario.getTareas());
+        return mav;
+    }
+
+    @RequestMapping(value = "/list_tasks/edit/{id}", method = RequestMethod.GET)
+    public ModelAndView formTaskEdit( @PathVariable("id") String id_tarea) {
+        ModelAndView mav=null;
+        Tarea tarea=tareaBO.get(Long.valueOf(id_tarea));
+        if(tarea != null){
+            mav=new ModelAndView("edit_task");
+            TareaBean tareaBean=new TareaBean(tarea.getId_tarea(),tarea.getTitulo(),tarea.getFecha_vencimiento(),tarea.getDescripcion(),tarea.getRealizada());
+            mav.addObject("tareaBean",tareaBean);
+        }
+        else
+            mav=new ModelAndView("error_page");
+        return  mav;
+    }
+    @RequestMapping(value = "/list_tasks/edit/{id}", method = RequestMethod.POST)
+    public ModelAndView submitTaskEdit( @Valid @ModelAttribute("tareaBean") TareaBean tareaBean,@PathVariable("id") String id_tarea, BindingResult bindingResult) {
+        ModelAndView mav=null;
+        if(bindingResult.hasErrors()){
+            mav=new ModelAndView("edit_task");
+        }
+        else {
+            mav=new ModelAndView("redirect:/list_tasks");
+            Long id_usuario=(Long)httpSession.getAttribute("Id");
+            Usuario usuario=usuarioBO.get(id_usuario);
+            Tarea tarea=new Tarea(tareaBean.getId_tarea(),tareaBean.getTitulo(),tareaBean.getFecha_vencimiento(),tareaBean.getDescripcion(),tareaBean.getRealizada(),usuario);
+            tareaBO.update(tarea);
+        }
+        return mav;
+    }
+    @RequestMapping(value = "/list_tasks/delete/{id}", method = RequestMethod.POST)
+    public ModelAndView deleteTask( @PathVariable("id") String id_tarea){
+        ModelAndView mav=new ModelAndView("redirect:/list_tasks");
+        Tarea tarea=tareaBO.delete(Long.valueOf(id_tarea));
         return mav;
     }
 

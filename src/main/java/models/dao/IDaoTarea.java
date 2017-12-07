@@ -8,4 +8,5 @@ import java.util.List;
  * Created by Alejandro on 4/12/2017.
  */
 public interface IDaoTarea extends GenericDAO<Tarea>{
- }
+ public List<Tarea> list(Long id);
+}

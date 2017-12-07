@@ -15,7 +15,7 @@ public class CheckSessionIntercepetor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response, Object handler) throws Exception {
         HttpSession session=request.getSession(false);
-        if (session != null && session.getAttribute("Id") != null)
+        if (session != null && session.getAttribute("Id") != null){
             return true;
         else{
             response.sendRedirect("login");

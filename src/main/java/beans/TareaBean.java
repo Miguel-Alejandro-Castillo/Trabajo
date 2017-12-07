@@ -1,6 +1,7 @@
 package beans;
 
 
+import models.entities.Usuario;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -13,6 +14,7 @@ import java.util.Date;
  * Created by Alejandro on 6/12/2017.
  */
 public class TareaBean {
+    private Long id_tarea;
     @NotNull
     @NotEmpty
     private String titulo;
@@ -23,10 +25,45 @@ public class TareaBean {
     @NotNull
     @NotEmpty
     private String descripcion;
+    @NotNull
+    private Boolean realizada;
+
+
+    public TareaBean() {
+        super();
+    }
+
+    public TareaBean(Long id_tarea, String titulo, Date fecha_vencimiento, String descripcion, Boolean realizada) {
+        this();
+        this.id_tarea = id_tarea;
+        this.titulo = titulo;
+        this.fecha_vencimiento = fecha_vencimiento;
+        this.descripcion = descripcion;
+        this.realizada = realizada;
+    }
+
+
+
+    public Long getId_tarea() {
+        return id_tarea;
+    }
+
+    public void setId_tarea(Long id_tarea) {
+        this.id_tarea = id_tarea;
+    }
+
+    public Boolean getRealizada() {
+        return realizada;
+    }
+
+    public void setRealizada(Boolean realizada) {
+        this.realizada = realizada;
+    }
+
+
     public String getTitulo() {
         return titulo;
     }
-
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }

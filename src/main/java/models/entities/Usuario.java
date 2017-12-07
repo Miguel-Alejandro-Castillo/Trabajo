@@ -22,7 +22,7 @@ public class Usuario {
     private String email;
     @Column(nullable = false)
     private String password;
-    @OneToMany(mappedBy = "usuarioPropietario",cascade={CascadeType.REMOVE})
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "usuarioPropietario",cascade={CascadeType.ALL})
     private List<Tarea> tareas;
 
     public Usuario() {

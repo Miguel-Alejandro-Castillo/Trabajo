@@ -20,4 +20,21 @@ public class TareaBO {
     public List<Tarea> list() {
         return daoTarea.list();
     }
+
+    public List<Tarea> list(Long id) {
+        return daoTarea.list(id);
+    }
+
+    public Tarea get(Long id_tarea) {
+        return daoTarea.get(id_tarea);
+    }
+
+    public Tarea delete(Long id_tarea) {
+         daoTarea.delete(id_tarea);
+        return null;
+    }
+
+    public void update(Tarea tarea) {
+        daoTarea.update(tarea);
+    }
 }

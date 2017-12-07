@@ -17,6 +17,9 @@ public class GenericDAOImplHibernate<T>  implements GenericDAO<T> {
            sessionFactory= HibernateUtil.getSessionFactory();
     }
 
+    protected SessionFactory getSessionFactory(){
+        return this.sessionFactory;
+    }
     @Override
     public void save(T entity) {
         Session session = sessionFactory.getCurrentSession();
