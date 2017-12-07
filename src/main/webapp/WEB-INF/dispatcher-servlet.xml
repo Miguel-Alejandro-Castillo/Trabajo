@@ -46,6 +46,12 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.
             <mvc:exclude-mapping path="/resources/**" />
          <bean class="util.CheckSessionIntercepetor" />
         </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/"/>
+            <mvc:mapping path="/login" />
+            <mvc:mapping path="/register" />
+            <bean class="util.NoLoginIfExistSession" />
+        </mvc:interceptor>
     </mvc:interceptors>
 
 </beans>

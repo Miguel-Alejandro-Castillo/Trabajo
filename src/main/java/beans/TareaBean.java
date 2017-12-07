@@ -18,7 +18,7 @@ public class TareaBean {
     @NotNull
     @NotEmpty
     private String titulo;
-    @NotNull
+    @NotNull(message = "No se ingreso una fecha de vencimiento" )
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(iso= DateTimeFormat.ISO.DATE)
     private Date fecha_vencimiento;

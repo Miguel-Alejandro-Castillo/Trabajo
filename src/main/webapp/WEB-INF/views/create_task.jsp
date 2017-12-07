@@ -33,7 +33,10 @@
     <a class="navbar-brand" href="">TAREAS!</a>
   </div>
 </nav>
-
+<div id="caja_logout">
+  <% String Email = (String) session.getAttribute("Email"); %>
+  <span > usuario: <%=Email%> <a href="logout" class="">Salir</a> </span>
+</div>
 <div class="container-fluid">
   <div class="row-fluid ">
     <div class="col" style="padding-top:10%; padding-bottom:5%;">
@@ -57,17 +60,17 @@
             <div class="md-form">
               Titulo
               <form:input path="titulo" name="titulo" id="Form-email4" />
-                <form:errors path="titulo" cssClass="error"/></td>
+                <form:errors path="titulo" cssClass="error"/>
             </div>
             <div class="md-form">
               Fecha de vencimiento
               <input type="date" name="fecha_vencimiento" />
-
+              <form:errors path="fecha_vencimiento" cssClass="error"/>
             </div>
             <div class="md-form">
               Descripcion
               <form:textarea path="descripcion" name="descripcion" id="Form-email4" />
-                <form:errors path="descripcion" cssClass="error"/></td>
+                <form:errors path="descripcion" cssClass="error"/>
             </div>
 
 
