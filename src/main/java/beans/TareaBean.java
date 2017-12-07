@@ -25,7 +25,6 @@ public class TareaBean {
     @NotNull
     @NotEmpty
     private String descripcion;
-    @NotNull
     private Boolean realizada;
 
 

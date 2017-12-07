@@ -81,3 +81,7 @@ footer.page-footer {
     float: right;
 
   }
+  .error{
+      font-style: italic;
+      color: red;
+  }

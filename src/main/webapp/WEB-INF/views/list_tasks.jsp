@@ -31,7 +31,20 @@
     <spring:url value="/resources/images/seo.jpg" var="recycler"/>
 </head>
 <body>
+<script type="application/javascript">
+    function borrarTarea(idTarea)
+    {
+        if(alert("borrar tarea?"))
+            $.ajax({
+            data: idTarea,
+            url: '/list_tasks/delete/' + idTarea,
+            type: 'POST',
+            success: function (response) {
 
+            }
+        });
+}
+</script>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
     <div class="container">
         <a class="navbar-brand" href="home">TAREAS!</a>

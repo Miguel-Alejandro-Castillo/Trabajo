@@ -85,9 +85,10 @@ public class HomeController {
             mav=new ModelAndView("error_page");
         return  mav;
     }
-    @RequestMapping(value = "/list_tasks/edit/{id}", method = RequestMethod.POST)
-    public ModelAndView submitTaskEdit( @Valid @ModelAttribute("tareaBean") TareaBean tareaBean,@PathVariable("id") String id_tarea, BindingResult bindingResult) {
+    @RequestMapping(value = "/list_tasks/edit", method = RequestMethod.POST)
+    public ModelAndView submitTaskEdit( @Valid @ModelAttribute("tareaBean") TareaBean tareaBean, BindingResult bindingResult) {
         ModelAndView mav=null;
+        if(tareaBean.getRealizada() == null) tareaBean.setRealizada(false);
         if(bindingResult.hasErrors()){
             mav=new ModelAndView("edit_task");
         }

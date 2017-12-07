@@ -32,7 +32,8 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="home">TAREAS!</a>
+    <spring:url value="/home" var="path"/>
+    <a class="navbar-brand" href="${path}"> TAREAS!</a>
   </div>
 </nav>
 <div id="caja_logout">
@@ -58,28 +59,29 @@
         <div class="card-body mx-4 mt-4" style="text-align: left;">
 
           <!--Body-->
-          <form:form id="taskForm" modelAttribute="tareaBean" action="${pageContext.request.contextPath}/list_tasks/edit/${tareaBean.id_tarea}" method="post">
+          <spring:url value="/list_tasks/edit" var="path"/>
+          <form:form id="taskForm" modelAttribute="tareaBean" action="${path}" method="post">
             <form:hidden path="id_tarea"/>
             <div class="md-form">
               Titulo
               <form:input path="titulo" name="titulo" id="Form-email4" />
-                <form:errors path="titulo" cssClass="error"/></td>
+                <form:errors path="titulo" cssClass="error"/>
             </div>
             <div class="md-form">
               Fecha de vencimiento
               <fmt:formatDate value="${tareaBean.fecha_vencimiento}" var="dateString" pattern="yyyy-MM-dd" />
               <input type="date" value="${dateString}" name="fecha_vencimiento" />
-                <form:errors path="fecha_vencimiento" cssClass="error"/></td>
+                <form:errors path="fecha_vencimiento" cssClass="error"/>
             </div>
             <div class="md-form">
               Descripcion
               <form:textarea path="descripcion" name="descripcion" id="Form-email4" />
-                <form:errors path="descripcion" cssClass="error"/></td>
+                <form:errors path="descripcion" cssClass="error"/>
             </div>
             <div class="md-form">
               Realizada
               <input type="checkbox" name="realizada" id="realizada" <c:if test="${tareaBean.realizada}">checked="checked"</c:if> />
-              <form:errors path="realizada" cssClass="error"/></td>
+              <form:errors path="realizada" cssClass="error"/>
             </div>
 
 

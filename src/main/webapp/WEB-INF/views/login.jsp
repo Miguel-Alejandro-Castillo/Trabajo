@@ -4,6 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
     <title>Login</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,6 +18,7 @@
     <spring:url value="/resources/js/bootstrap.min.js" var="bootstrap_js"/>
     <spring:url value="/resources/js/mdb.min.js" var="mdb_js"/>
     <link href="${style_css}" rel="stylesheet"/>
+
     <!--<link href="${font_awesone_css}" rel="stylesheet"/> -->
     <link href="${bootstrap_css}" rel="stylesheet"/>
     <link href="${mdb_css}" rel="stylesheet"/>
