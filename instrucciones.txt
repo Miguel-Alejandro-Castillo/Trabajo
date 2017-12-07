@@ -1,0 +1,20 @@
+Previamente de haber instalado todos los requerimientos hacer:
+
+ 1) abrir una consola sobre /bin de MySQL y ejecutar:
+             mysql -u <usuario root> -p
+             create database trabajo;
+             exit;
+ 2) agregar en la variable de entorno Path de Windows la ubicacion de la carpeta jdk 6
+ 3) ejecutar Intellij Ideaa, luego abrir el pom.xml principal del projecto 
+ 4) una vez abierto el projecto, ir a opcion run,luego a Edit Configutarions..
+ 5) Presionar más y seleccionar maven:
+       en Command line setear clean install, y verificar que en el Working directory este apuntando al proyecto
+       luego presionar aplicar y ok.
+ 6)selecciona más y seleccionar jboss:
+       en Application server setear la ubicacion de la carpeta de jboss,
+       en Server instance seleccionar default,
+       en Deployment crear el artifact del projecto,
+       luego presionar aplicar y ok
+  7) ejecutar maven
+  8)ejecutar jboss
+ 

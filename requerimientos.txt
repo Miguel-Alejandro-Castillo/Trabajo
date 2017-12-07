@@ -1,0 +1,6 @@
+Requerimientos para ejecutar la aplicacion:
+         *Intellij IDEA 14.0
+         *apache-maven-2.2.1
+         *jboss-4.2.3.GA
+         *jdk1.6.0_45
+         *MySQK 5.7
