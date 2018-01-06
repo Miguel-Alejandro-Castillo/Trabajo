@@ -30,6 +30,7 @@ public class LoginController {
     public ModelAndView showLogin(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView mav = new ModelAndView("login");
         mav.addObject("loginBean", new LoginBean());
+        mav.addObject("message", "hola zonso");
         return mav;
     }
     @RequestMapping(value = "/login", method = RequestMethod.POST)

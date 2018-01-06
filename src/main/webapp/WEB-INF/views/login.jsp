@@ -29,6 +29,7 @@
 
 </head>
 <body>
+${message}
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
     <div class="container">
         <a class="navbar-brand" href="">TAREAS!</a>
